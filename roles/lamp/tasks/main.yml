@@ -1,0 +1,11 @@
+---
+
+- include: 00-deploy-httpd.yml tags=httpd
+
+- include: 00-deploy-mariadb.yml tags=mariadb
+
+- include: 00-deploy-php.yml tags=php
+
+- include: 00-deploy-phpMyAdmin.yml tags=phpMyAdmin
+
+

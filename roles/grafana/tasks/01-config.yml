@@ -1,0 +1,11 @@
+---
+
+#En los servidores de MIRALL se deja la configuración por defecto
+#- name: Copy grafana config file
+#  copy:
+#    src=grafana.ini
+#    dest=/etc/grafana
+#    backup=yes
+#  when: ansible_env.CPD != 'MIRALL'
+
+

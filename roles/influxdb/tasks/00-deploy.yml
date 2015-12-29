@@ -1,0 +1,8 @@
+---
+
+- name: install influxdb rpm
+  yum:
+    name="https://s3.amazonaws.com/influxdb/influxdb-0.9.6.1-1.x86_64.rpm"
+    state=present
+
+

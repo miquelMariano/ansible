@@ -1,0 +1,6 @@
+---
+
+- name: Disable firewall and SELinux
+  shell: sed 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/selinux/configi
+  shell: systemctl stop firewalld
+  shell: systemctl disable firewalld 
