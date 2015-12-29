@@ -1,3 +1,9 @@
+#Inizializar repo
+`git init`
+
+#Añadir nuevos ficheros
+`git add *`
+
 #Recibir
 `git pull`
 
@@ -5,18 +11,18 @@
 `git status`
 
 #Commit
-`git commit -m "test" README.md`
+`git commit -m "comment here"`
 
 #Subir
 `git push -u origin master`
 
 
-…or create a new repository on the command line
 
+#Crear nuevo repo
 
-echo "# ansible" >> README.md
+`echo "# ansible" >> README.md
 git init
 git add README.md
 git commit -m "first commit"
 git remote add origin git@github.com:miquelMariano/ansible.git
-git push -u origin master
+git push -u origin master`
