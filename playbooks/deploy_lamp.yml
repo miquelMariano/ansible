@@ -1,0 +1,10 @@
+---
+
+
+# ansible-playbook playbooks/deploy_lamp.yml -i inventory/servers --extra-vars "servers=test ha_mode=true" --tags=ha -v
+
+- hosts: "{{ servers }}:!localhost"
+  user: root
+  roles:
+  - role: 
+      lamp

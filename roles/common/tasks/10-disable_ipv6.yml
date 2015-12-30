@@ -7,7 +7,7 @@
     insertbefore=BOF
     line='GRUB_CMDLINE_LINUX="crashkernel=auto ipv6.disable=1 net.ifnames=0 rd.lvm.lv=centos/root rd.lvm.lv=centos/swap rhgb quiet"'
 
-- name: Apply changes
+- name: Disable IPv6 | Apply changes 
   shell: grub2-mkconfig -o /boot/grub2/grub.cfg
 
 

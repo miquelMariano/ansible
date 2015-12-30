@@ -7,6 +7,7 @@ docker
 mysql
 nagios
 test
+web
 
 [other]
 statsfeeder01
@@ -30,5 +31,9 @@ mysql01
 test01
 
 [test]
-test01
-test02
+test01 keepalived=master
+test02 keepalived=slave
+
+[web]
+web01 keepalived=master
+web02 keepalived=slave
