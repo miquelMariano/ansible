@@ -38,12 +38,15 @@ Example Playbook
 ----------------
 
 - Despliegue de todo el stack lamp
+
 `ansible-playbook playbooks/deploy_lamp.yml -i inventory/servers --extra-vars "servers=web"`
 
 - Despliegue de toto el stack con HAproxy y keepalived
+
 `ansible-playbook playbooks/deploy_lamp.yml -i inventory/servers --extra-vars "servers=web ha_mode=true"`
 
 - Despliegue de una servicio concreto
+
 `ansible-playbook playbooks/deploy_lamp.yml -i inventory/servers --extra-vars "servers=web" --tags=mariadb -v`
 
 License
