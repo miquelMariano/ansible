@@ -2,6 +2,6 @@
 
 - hosts: "{{ servers }}:!localhost"
   user: root
-  roles:
-  - role: 
-      lamp
+  roles: 
+#    - lamp
+    - zabbix

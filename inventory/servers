@@ -5,7 +5,7 @@ grafana
 influxdb
 docker
 mysql
-nagios
+zabbix
 test
 web
 
@@ -27,8 +27,8 @@ influxdb01
 [mysql]
 mysql01
 
-[nagios]
-test01
+[zabbix]
+web02
 
 [test]
 test01 keepalived=master

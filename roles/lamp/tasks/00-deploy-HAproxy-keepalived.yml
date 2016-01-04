@@ -45,13 +45,12 @@
 
 
 #- name: Enable floating/shared IP
-#  lineinfile: 
-#    dest=/etc/sysctl.conf
-#    line="net.ipv4.ip_nonlocal_bind=1"
-#    state=present
-
-#- name: Enable changes
-#  command: sysctl -p
-
-#net.ipv4.ip_nonlocal_bind=1
-
+##  lineinfile: 
+##    dest=/etc/sysctl.conf
+##    line="net.ipv4.ip_nonlocal_bind=1"
+##    state=present
+#
+##- name: Enable changes
+##  command: sysctl -p
+#
+##net.ipv4.ip_nonlocal_bind=1
