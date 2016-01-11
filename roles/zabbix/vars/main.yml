@@ -1,4 +1,7 @@
 ---
 
+root_mariadb_password: ncora
 
-#root_mariadb_password: ncora
+zabbixdb_name: zabbix-db
+zabbixdbuser_name: zabbix-user
+zabbixdbuser_password: Secret123!

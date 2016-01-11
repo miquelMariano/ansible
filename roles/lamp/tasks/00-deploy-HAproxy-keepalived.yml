@@ -8,6 +8,8 @@
   with_items:
     - haproxy
     - keepalived
+    - psmisc
+# psmisc debe estar instalado para que keepalived pueda hacer uso del killall para checkear el proceso haproxy
 
 - name: Set ip forwarding on in /proc and in the sysctl file and reload if necessary 
   sysctl: 

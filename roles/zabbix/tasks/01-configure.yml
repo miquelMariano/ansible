@@ -1,0 +1,47 @@
+---
+
+- name: Create zabbixdb database
+  mysql_db:
+   login_user=root
+   login_password={{ root_mariadb_password }}
+   name={{ zabbixdb_name }}
+   state=present
+
+- name: Create zabbixuser DB
+  mysql_user: 
+   login_user=root
+   login_password={{ root_mariadb_password }}
+   name={{ zabbixdbuser_name}}
+   password={{ zabbixdbuser_password }} 
+   priv={{ zabbixdb_name }}.*:ALL,GRANT 
+   state=present
+
+- name: Import zabbix templates to Zabbix database
+  mysql_db: 
+   login_user={{ zabbixdbuser_name }}
+   login_password={{ zabbixdbuser_password }}
+   name={{ zabbixdb_name }}
+   state=import 
+   target={{item }}
+  with_items:
+    - /usr/share/doc/zabbix-server-mysql-2.4.7/create/schema.sql
+    - /usr/share/doc/zabbix-server-mysql-2.4.7/create/images.sql
+    - /usr/share/doc/zabbix-server-mysql-2.4.7/create/data.sql
+  ignore_errors: yes
+
+- name: Configure Zabbix server | DBName $ DBUser
+  replace:
+   dest=/etc/zabbix/zabbix_server.conf
+   regexp={{ item.regexp }}
+   replace={{ item.line}}
+  with_items: 
+    - { regexp: 'DBName=.*', line: 'DBName={{ zabbixdb_name }}' }
+    - { regexp: 'DBUser=.*', line: 'DBUser={{ zabbixdbuser_name }}' }
+
+- name: Configure Zabbix server | DBPassword
+  lineinfile:
+    dest=/etc/zabbix/zabbix_server.conf
+    line='DBPassword={{ zabbixdbuser_password }}'
+    state=present
+    insertafter='# DBPassword.*'
+

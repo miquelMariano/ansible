@@ -9,3 +9,5 @@
 - include: 13-banner.yml tags=banner
 
 - include: 14-environment.yml tags=env
+
+- include: 15-ntp.yml tags=ntp

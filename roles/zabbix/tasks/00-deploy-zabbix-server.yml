@@ -17,7 +17,17 @@
     - zabbix-server-mysql
     - zabbix-web-mysql
     - zabbix-agent
-    - zabbix-agent
 
+- name: Update php timezone
+  lineinfile:
+    dest=/etc/httpd/conf.d/zabbix.conf
+    line='        php_value date.timezone Europe/Madrid'
+    state=present
+    insertafter='        php_value max_input_time 300'
+
+- name: Restart httpd service
+  service:
+    name=httpd
+    state=restarted
 
 

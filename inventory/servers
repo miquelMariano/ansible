@@ -8,12 +8,14 @@ mysql
 zabbix
 test
 web
+win
 
 [other]
 statsfeeder01
 
 [ansible]
 ansible01
+ansible-lab01
 
 [grafana]
 grafana01
@@ -28,7 +30,7 @@ influxdb01
 mysql01
 
 [zabbix]
-web02
+web01
 
 [test]
 test01 keepalived=master
@@ -37,3 +39,9 @@ test02 keepalived=slave
 [web]
 web01 keepalived=master
 web02 keepalived=slave
+
+[win]
+miquel-pc
+
+
+
