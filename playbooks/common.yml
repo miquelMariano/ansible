@@ -1,4 +1,7 @@
 ---
+#Usage
+#ansible-playbook playbooks/common.yml -i inventory/servers --extra-vars "servers=all" -v
+
 
 - hosts: "{{ servers }}:!localhost"
   user: root
