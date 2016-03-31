@@ -1,0 +1,13 @@
+---
+
+#13-banner.yml
+ssh_options:
+  - setting: PermitRootLogin
+    value: 'without-password'
+    state: absent
+  - setting: GSSAPIAuthentication
+    value: 'no'
+  - setting: UseDNS
+    value: 'no'
+  - setting: Banner
+    value: '/etc/issue.net'

@@ -1,0 +1,5 @@
+---
+
+- include: 00-deploy.yml tags=deploy
+
+- include: 01-config.yml tags=config

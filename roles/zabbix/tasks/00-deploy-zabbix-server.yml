@@ -1,0 +1,33 @@
+---
+
+- name: Copy zabbix repository
+  copy:
+    src=/etc/ansible/roles/zabbix/files/zabbix.repo
+    dest=/etc/yum.repos.d
+
+- name: Clean yum metadata
+  command: yum clean metadata
+
+- name: Install Zabbix server and agent
+  yum:
+    name={{ item }}
+    state=present
+    disable_gpg_check=yes
+  with_items:
+    - zabbix-server-mysql
+    - zabbix-web-mysql
+    - zabbix-agent
+
+- name: Update php timezone
+  lineinfile:
+    dest=/etc/httpd/conf.d/zabbix.conf
+    line='        php_value date.timezone Europe/Madrid'
+    state=present
+    insertafter='        php_value max_input_time 300'
+
+- name: Restart httpd service
+  service:
+    name=httpd
+    state=restarted
+
+

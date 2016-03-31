@@ -1,0 +1,19 @@
+---
+
+- name: copy grafana repo file
+  copy:
+    src=grafana.repo
+    dest=/etc/yum.repos.d/
+
+#- name: Clean yum metadata
+#  command: yum clean metadata
+
+- name: install grafana rpm
+  yum:
+    name=grafana
+    enablerepo=grafana
+    state=present
+    disable_gpg_check=yes
+
+
+
