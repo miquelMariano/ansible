@@ -1,2 +1,15 @@
 ---
-# vars file for roles/netdata
+# vars file for ansible-netdata
+
+netdata:
+  gitrepo: https://github.com/firehol/netdata.git
+  clonedir: /tmp/netdata
+  binary: /usr/local/sbin/netdata
+  installer: ./netdata-installer.sh --dont-wait
+  tarball:
+    url: http://firehol.org/download/netdata/releases/v1.0.0/netdata-1.0.0.tar.bz2
+    basename: netdata-1.0.0.tar.bz2
+    basename_noext: netdata-1.0.0
+  md5sum:
+    url: http://firehol.org/download/netdata/releases/v1.0.0/netdata-1.0.0.tar.bz2.md5
+    basename: netdata-1.0.0.tar.bz2.md5
