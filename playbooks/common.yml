@@ -6,4 +6,4 @@
 - hosts: "{{ servers }}:!localhost"
   user: root
   roles:
-  - role: common
+  - role: common_v2
