@@ -1,48 +1,7 @@
 [all:children]
-other
-ansible
-grafana
-influxdb
-docker
-mysql
-zabbix
 test
-web
-win
-
-[other]
-statsfeeder01
-
-[ansible]
-#ansible01
-#ansible-lab01
-ansible
-
-[grafana]
-grafana01
-
-[influxdb]
-influxdb01
-
-[docker]
-#docker01
-
-[mysql]
-mysql01
-
-[zabbix]
-web01
 
 [test]
-test01 keepalived=master
-test02 keepalived=slave
-
-[web]
-web01 keepalived=master
-web02 keepalived=slave
-
-[win]
-miquel-pc
-
-
-
+vm1
+vm2
+vm3
