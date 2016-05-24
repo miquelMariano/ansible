@@ -5,11 +5,13 @@
   yum: name={{ item }} state=present
   with_items:
     - zlib-devel
+    - libuuid-devel
+    - libmnl-devel
     - gcc
     - make
     - git
     - autoconf
-    # - autogen
+    - autogen
     - automake
     - pkgconfig
   become: yes

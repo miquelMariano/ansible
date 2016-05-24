@@ -14,9 +14,9 @@ win
 statsfeeder01
 
 [ansible]
-#ansible01
+ansible01
 #ansible-lab01
-ansible
+#ansible
 
 [grafana]
 grafana01
