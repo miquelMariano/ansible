@@ -1,0 +1,59 @@
+---
+- hosts: all
+  gather_facts: false
+  connection: local
+  user: remote
+  sudo: true
+
+  vars_prompt:
+    - name: "vcenter_hostname"
+      prompt: "Enter vcenter hostname"
+      private: no
+      default: "formacion-vcenter.ncora.local"
+    - name: "vcenter_user"
+      prompt: "Enter vcenter username"
+      private: no
+      default: "root"
+    - name: "vcenter_pass"
+      prompt: "Enter vcenter password"
+      private: yes
+
+  vars:
+    datacenter: 'Formacion'
+    cluster: 'Cluster-formacion'
+ #   esxi_host: '192.168.1.52'
+    notes: 'Created by Ansible'
+    template: 'CentOS7'
+    resource_pool: '/Resources'
+
+  tasks:
+    - vsphere_guest:
+        vcenter_hostname: "{{ vcenter_hostname }}"
+        username: "{{ vcenter_user }}"
+        password: "{{ vcenter_pass }}"
+        guest: "{{ inventory_hostname }}"
+#        state: present
+        from_template: yes
+        template_src: "{{ template }}"
+        cluster: "{{ cluster }}"
+        resource_pool: "{{ resource_pool }}"
+        vm_extra_config:
+          notes: "{{ notes }}"
+        vm_disk:
+          disk1:
+            size_gb: "{{ disk }}"
+            type: thin
+            datastore: "{{ datastore }}"
+        vm_nic:
+          nic1:
+            type: vmxnet3
+            network: "{{ network }}"
+            network_type: standard
+        vm_hardware:
+          memory_mb: "{{ memory }}"
+          num_cpus: "{{ cpucount }}"
+          osid: "{{ osid }}"
+          scsi: paravirtual
+#        esxi:
+#          datacenter: "{{ datacenter }}"
+#          hostname: "{{ esxi_host }}"

@@ -1,0 +1,5 @@
+[web-vms]
+1-ans-web[01:02] disk='10' datastore='host-52' network='VM Network' memory='256' cpucount='1' osid='ubuntu64Guest'
+
+[db-vms]
+1-ans-db[01:02] disk='20' datastore='host-52' network='VM Network' memory='1024' cpucount='2' osid='rhel6_64Guest'
